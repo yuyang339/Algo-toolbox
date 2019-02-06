@@ -48,6 +48,7 @@ class UF:
 
 
 # prim algorithm
+# The time complexity is O(VlogV + ElogV) = O(ElogV), making it the same as Kruskal's algorithm. However, Prim's algorithm can be # improved using Fibonacci Heaps (cf Cormen) to O(E + logV).
 def prim(G):
     # initialize the MST and the set X
     MST = set()
