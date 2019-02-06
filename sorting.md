@@ -1,5 +1,6 @@
-```python
+
 # bubble sort
+```python
 def bubble(inp):
     for i in range(len(inp)-1):
         for j in range(i, len(inp)-1):
@@ -11,8 +12,10 @@ def bubble(inp):
     
 inp = [1, 0, 4, 2, 4, 5, 8]
 print(bubble(inp))
+```
 
 # insertion sort
+```python
 def insertion(inp):
     for i in range(1, len(inp)):
         key = inp[i]
@@ -29,8 +32,10 @@ def insertion(inp):
     return inp
 inp = [1, 0, 4, 2, 4, 5, 8]
 print(insertion(inp)) 
+```
 
 # shell sort
+```python
 def shell(inp):
     gap = len(inp)//2
     while gap > 0:
@@ -50,8 +55,9 @@ def insertion_sort(start_pos, gap):
     
 inp = [1, 0, 4, 2, 4, 5, 8]        
 print(shell(inp))
-
-
+```
+# merge sort
+```python
 def merge_sort(A):
     results = []
     if len(A) < 2:
@@ -74,9 +80,11 @@ def merge_sort(A):
 A = [1, 0, 4, 2, 4, 5]
 A=merge_sort(A)
 print(A)
-
+```
 
 # heap sort
+
+```python
 def heap_sort():
     build_max_heap()
     A[0], A[len(A)-1] = A[len(A)-1], A[0]
@@ -105,8 +113,10 @@ def build_max_heap():
 A = [1, 0, 4, 2, 4, 5, 8]
 heap_sort()
 print(A)
+```
 
 # quick sort
+```python
 def qs(l, h):
     if l < h:
         m = part(l, h)
