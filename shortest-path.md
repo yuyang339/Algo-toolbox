@@ -1,4 +1,6 @@
 # dijkstra
+Time complexity of O(V^2). 
+Graph represented using adjacency list can be reduced to O(E log V) with the help of binary heap.
 ```python
 from collections import defaultdict
 from heapq import *
@@ -50,6 +52,7 @@ if __name__ == "__main__":
 ```
 
 # bellman ford
+time complexity of Bellman-Ford is O(VE)
 ```python
 # Step 1: For each node prepare the destination and predecessor
 def initialize(graph, source):
@@ -114,6 +117,7 @@ if __name__ == '__main__': test()
 ```
 
 # floyd
+O(V^3)
 ```python
 from math import inf
 from itertools import product
