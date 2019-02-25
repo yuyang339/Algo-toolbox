@@ -1,21 +1,23 @@
 
 ```python
-p = [i for i in range(n)]
-rank = [1 for i in range(n)]
-def find(x):
-    while x!=p[x]:
-        p[x] = p[p[x]]
-        x = p[x]
-    return x
-def union(x, y):
-    px = find(x)
-    py = find(y)
-    if px != py:
-        if rank[px] > rank[py]:
-            p[py] = px
-        elif rank[px] < rank[py]:
-            p[px] = py
+sets = [-1 for _ in range(n)]
+def find(x, sets):
+        if sets[x] < 0:
+            return x
         else:
-            p[px] = py
-            rank[py] += 1
+            sets[x] = find(sets[x], sets)
+            return sets[x]
+
+    def union(u, v, sets):
+        a = find(u, sets)
+        b = find(v, sets)
+
+        newSize = sets[a] + sets[b]
+
+        if sets[a] > sets[b]:
+            sets[a] = b
+            sets[b] = newSize
+        else:
+            sets[b] = a
+            sets[a] = newSize
 ```
