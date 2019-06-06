@@ -104,6 +104,25 @@ void preorderIterative(Node *root)
 }
 ```
 
+```python
+def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        stack = []
+        res = []
+        node = root
+        while stack or node:
+            if node:
+                stack.append(node)
+                res.append(node.val)
+                node = node.left
+            else:
+                node = stack.pop()
+                node = node.right
+        return res
+```
 # postorder
 ```c++
 // Recursive function to perform post-order traversal of the tree
