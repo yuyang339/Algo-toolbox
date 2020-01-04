@@ -1,23 +1,20 @@
 
 ```python
-sets = [-1 for _ in range(n)]
-def find(x, sets):
-        if sets[x] < 0:
-            return x
-        else:
-            sets[x] = find(sets[x], sets)
-            return sets[x]
+parent = [i for i in range(N+1)]
 
-    def union(u, v, sets):
-        a = find(u, sets)
-        b = find(v, sets)
+def find(node):
+    if parent[node] == node:
+        return node
+    # path compression
+    # rememeber to pass parent[node] to find
+    parent[node] = find(parent[node])
+    return parent[node]
 
-        newSize = sets[a] + sets[b]
-
-        if sets[a] > sets[b]:
-            sets[a] = b
-            sets[b] = newSize
-        else:
-            sets[b] = a
-            sets[a] = newSize
+def union(node1, node2):
+    root1 = find(node1)
+    root2 = find(node2)
+    if root1 == root2:
+        return False
+    parent[root1] = root2
+    return True
 ```
