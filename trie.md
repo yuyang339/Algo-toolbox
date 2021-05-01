@@ -33,6 +33,81 @@ class Trie:
         return True
 
 ```
+```java
+class TrieNode {
+    Map<Character, TrieNode> children = new HashMap<>();
+    boolean isWord = false;
+    String word = null;
+    
+    public void setChildren(Character ch) {
+        children.put(ch, new TrieNode());
+    }
+    
+    public TrieNode getChildren(Character ch) {
+        if (children.containsKey(ch))
+        return children.get(ch);
+        else
+            return null;
+    }
+    
+    public void setIsWord(String w){
+        isWord = true;
+        word = w;
+    }
+    
+    public boolean getIsWord() {
+        return isWord;
+    }
+         
+}
+
+
+class Trie {
+    public TrieNode root;
+    /** Initialize your data structure here. */
+    public Trie() {
+        root = new TrieNode();
+    }
+    
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        var node = root;
+        for (char ch: word.toCharArray()) {
+            if (node.getChildren(ch) == null) {
+                node.setChildren(ch);
+            }
+            node = node.getChildren(ch) ;
+            // node.setChildren(ch);
+            // node = node.getChildren(ch);
+        }
+        node.setIsWord(word);
+    }
+    
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        var node = root;
+        for (char ch: word.toCharArray()) {
+            node = node.getChildren(ch);
+            if (node == null) {
+                return false;
+            }
+        }
+        return node.getIsWord();
+    }
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        var node = root;
+        for (char ch: prefix.toCharArray()) {
+            node = node.getChildren(ch);
+            if (node == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
 ```c++
 class TrieNode
